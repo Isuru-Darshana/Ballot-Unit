@@ -26,7 +26,7 @@ def on_vote(candidate_number):
         messagebox.showinfo("Vote Recorded", f"Your vote for {candidate_label} has been recorded.")
         vote_amount()
         print_vote(candidate_number)
-
+#Results on the Backend
 def vote_amount():
     total_votes = sum(votes.values())
     print(f"Total Votes: {total_votes}")
@@ -35,6 +35,7 @@ def vote_amount():
         percentage = (vote_count / total_votes * 100) if total_votes > 0 else 0
         print(f"{candidate_name}: {vote_count} votes, {percentage:.2f}% of total")
 
+#Print the Ballot
 def print_vote(candidate_number):
     conn = cups.Connection()
     printers = conn.getPrinters()
@@ -45,6 +46,7 @@ def print_vote(candidate_number):
     else:
         messagebox.showerror("Print Error", "No file associated with this candidate.")
 
+#GUI Interface
 root = Tk()
 root.title("CAST YOUR VOTE")
 root.geometry("1024x600")
